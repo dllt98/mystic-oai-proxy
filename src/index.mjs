@@ -111,6 +111,7 @@ const getChatCompletions = async (req, res) => {
 
   const result = await response.json();
   console.log(JSON.stringify(result, null));
+
   const openAIResult = {
     id: result.id,
     object: "chat.completion",
@@ -121,7 +122,7 @@ const getChatCompletions = async (req, res) => {
         index: 0,
         message: {
           role: "assistant",
-          content: result.result.outputs[0].value,
+          content: result.result.outputs[0].value[0],
         },
         finish_reason: "stop",
       },
@@ -146,7 +147,7 @@ const getChatCompletions = async (req, res) => {
 const notFound = (req, res) => {
   const buffer = toBuffer({
     notfound: true,
-    text: "You aren't supposed to open this in a browser.",
+    text: "The proxy is running. You aren't supposed to open this in a browser.",
   });
   res.writeHead(404, {
     "Content-Type": "application/json; charset=utf-8",
