@@ -22,7 +22,7 @@ const getModels = async (req, res) => {
       id: model,
       object: model,
       created: 1686935002,
-      owned_by: "cohere",
+      owned_by: "mystic",
     })),
   };
   const buffer = toBuffer(result);
