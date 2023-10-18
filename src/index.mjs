@@ -97,7 +97,7 @@ const getChatCompletions = async (req, res) => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      Authorization: req.headers.authorization, // This should include
+      Authorization: req.headers.authorization, // This should include Mystic.AI token
     },
   });
 
